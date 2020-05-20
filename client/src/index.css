@@ -75,3 +75,9 @@ body {
   color: red;
   text-align: center;
 }
+
+.update-form {
+  display: flex;
+  margin-left: 40%;
+  flex-direction: column;
+}
