@@ -19,9 +19,8 @@ function Movie(props) {
     e.preventDefault();
     axios.delete(`http://localhost:5000/api/movies/${movie.id}`)
       .then(res => {
-        props.setMovieList(res.data)
         push(`/`)
-        props.setMovieList(props.movieList.filter(movie => `movie.id` !== res.data))
+        // props.setMovieList(props.movieList.filter(movie => `movie.id` !== res.data))
       })
       .catch(err => console.log(err))
   }

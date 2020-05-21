@@ -13,7 +13,7 @@ const initialItem = {
 const UpdateForm = props => {
     const { push } = useHistory();
     const [movie, setMovie] = useState(initialItem);
-    const { id } = useParams;
+    const { id } = useParams();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/api/movies/${id}`)
@@ -36,8 +36,11 @@ const UpdateForm = props => {
           .put(`http://localhost:5000/api/movies/${id}`, movie)
           .then(res => {
               //res.data
-              props.setMovieList(res.data);
-              push(`/`)
+              setMovie([
+                ...props.movieList,
+                res.data
+              ])
+              push(`/api/movies/${id}`)
           })
           .catch(err => console.log(err))
     }
@@ -50,7 +53,7 @@ const UpdateForm = props => {
                   type='text'
                   name='title'
                   onChange={changeHandler}
-                  value={movie.name}
+                  value={movie.title}
                 />
                 <div className='baseline'/>
                 <input
