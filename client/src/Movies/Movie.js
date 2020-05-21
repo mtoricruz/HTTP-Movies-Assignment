@@ -21,7 +21,9 @@ function Movie(props) {
       .then(res => {
         props.setMovieList(res.data)
         push(`/`)
+        props.setMovieList(props.movieList.filter(movie => `movie.id` !== res.data))
       })
+      .catch(err => console.log(err))
   }
 
   const saveMovie = () => {
