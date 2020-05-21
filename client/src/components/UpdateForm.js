@@ -40,7 +40,7 @@ const UpdateForm = props => {
                 ...props.movieList,
                 res.data
               ])
-              push(`/api/movies/${id}`)
+              push(`/movies/${id}`)
           })
           .catch(err => console.log(err))
     }
